@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect 4 AI</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scaffold">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-box">四</div>
+            <h1 class="headline">CONNECT FOUR AI</h1>
+            <div class="divider"></div>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-text-area">
+                <span class="status-label">CURRENT STATUS</span>
+                <span class="status-value" id="status-display">Your Turn</span>
+            </div>
+            <div class="score-box">
+                <span class="score-text" id="score-display">Score: 00</span>
+            </div>
+        </div>
+
+        <!-- Board Area -->
+        <div class="board-wrapper-outer">
+            <div class="board-wrapper">
+                <!-- Dark backplate for holes -->
+                <div class="board-backplate"></div>
+                
+                <!-- Pieces fall into this container -->
+                <div id="pieces-container" class="pieces-container"></div>
+                
+                <!-- SVG Board Mask -->
+                <svg class="board-mask" width="100%" height="100%" viewBox="0 0 594 512">
+                    <defs>
+                        <mask id="holes">
+                            <rect width="100%" height="100%" fill="white" />
+                            <!-- Holes injected by JS -->
+                        </mask>
+                    </defs>
+                    <rect x="0" y="0" width="100%" height="100%" fill="var(--color-secondary)" mask="url(#holes)" rx="2"/>
+                </svg>
+                
+                <!-- Overlay to capture user clicks -->
+                <div id="click-overlay" class="click-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Controls Area -->
+        <div class="controls-area">
+            <div class="strategy-level">
+                <span class="strategy-label">STRATEGY LEVEL</span>
+                <div class="difficulty-chips" id="difficulty-select">
+                    <button class="diff-chip" data-value="1">EASY</button>
+                    <button class="diff-chip" data-value="2">MEDIUM</button>
+                    <button class="diff-chip active" data-value="3">HARD</button>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <!-- Reset Board / New Round -->
+                <button id="restart-btn" class="btn btn-outline">RESTART GAME</button>
+                <button id="new-round-btn" class="btn btn-primary">NEW ROUND</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>ESTABLISHED 1974</span>
+            <span>SHŌWA ELEGANCE GAMING</span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
